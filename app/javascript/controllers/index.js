@@ -6,6 +6,3 @@ import { application } from "./application"
 
 import HeaderController from "./header_controller"
 application.register("header", HeaderController)
-
-import TestHeaderController from "./test_header_controller"
-application.register("test-header", TestHeaderController)
