@@ -4,6 +4,7 @@ class ListingsController < ApplicationController
   end
 
   def new
+    render layout: 'new_listing'
   end
 
   def create
