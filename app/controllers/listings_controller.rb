@@ -7,4 +7,11 @@ class ListingsController < ApplicationController
   def show
     @listing = Listing.find(params[:id])
   end
+
+  def new
+    render layout: 'new_listing'
+  end
+
+  def create
+  end
 end
