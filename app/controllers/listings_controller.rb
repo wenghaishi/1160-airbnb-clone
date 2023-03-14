@@ -3,4 +3,11 @@ class ListingsController < ApplicationController
   def index
     @listings = Listing.all
   end
+
+  def new
+    render layout: 'new_listing'
+  end
+
+  def create
+  end
 end
