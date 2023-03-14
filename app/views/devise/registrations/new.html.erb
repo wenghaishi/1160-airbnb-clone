@@ -1,29 +1,39 @@
-<h2>Sign up</h2>
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= f.error_notification %>
-  <div class="form-inputs">
-    <%= f.input :email,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "email" }%>
-    <%= f.input :first_name,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "first_name" }%>
-    <%= f.input :last_name,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "last_name" }%>
-    <%= f.input :password,
-                required: true,
-                hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :password_confirmation,
-                required: true,
-                input_html: { autocomplete: "new-password" } %>
-  </div>
-  <div class="form-actions">
-    <%= f.button :submit, "Sign up", class:"btn"%>
-  </div>
-<% end %>
-<%= render "devise/shared/links" %>
+<p></p>
+<div class="max-w-md mx-auto bg-white shadow-md rounded-xl">
+  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <div class="flex items-center justify-center px-6 border-b py-5">
+      <p><i class="fa-regular fa-less-than"></i></p>
+      <h2>Sign up</h2>
+    </div>
+    <div class="p-6 pb-3">
+      <div class="mb-3 sign_up">
+        <%= f.input :first_name,
+                  required: true,
+                  label: false,
+                  autofocus: true,
+                  input_html: { autocomplete: "first_name", placeholder: "First name", class: "rounded-lg border z-0 w-full py-2 px-3 text-gray-700 focus:outline-none focus:shadow-outline m-0"}%>
+        <%= f.input :last_name,
+                  required: true,
+                  label: false,
+                  autofocus: true,
+                  input_html: { autocomplete: "last_name", placeholder: "Last name", class: "rounded-lg border z-0 w-full py-2 px-3 text-gray-700 focus:outline-none focus:shadow-outline m-0" }%>
+      </div>
+      <p class="text-xs text-gray-400 mb-5">Make sure it matches the name on your government ID.</p>
+      <div class="sign_up">
+        <%= f.input :email,
+              required: true,
+              autofocus: true,
+              label: false,
+              input_html: { autocomplete: "email", placeholder: "Email", class: "rounded-lg border z-0 w-full py-2 px-3 text-gray-700 focus:outline-none focus:shadow-outline"}%>
+        <p class="text-xs text-gray-400 mb-5">We'll email you trip confirmations and receipts.</p>
+        <%= f.input :password,
+              required: true,
+              label: false,
+              input_html: { autocomplete: "new-password", placeholder: "Password", class: "rounded-lg border z-0 w-full py-2 px-3 text-gray-700 focus:outline-none focus:shadow-outline" } %>
+        <%= f.button :submit, "Sign Up", id: "submit", class: "rounded-lg border z-0 w-full py-2 px-3 text-gray-700 focus:outline-none focus:shadow-outline"%>
+        <%= f.error_notification %>
+      </div>
+    </div>
+  <% end %>
+</div>
+<%# <%= render "devise/shared/links" %>
