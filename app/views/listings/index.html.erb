@@ -2,7 +2,7 @@
   <div class="grid grid-cols-2 gap-6 md:grid-cols-2 lg:grid-cols-4">
 
     <% @listings.each do |listing| %>
-      <%= link_to listings_path do %>
+      <%= link_to listing_path(listing) do %>
         <div>
           <div class="w-100 h-80 rounded-lg mb-2" style="background-image: url('<%= listing.img_url %>'); object-fit: cover;"></div>
           <p class="text-slate-600 mb-2"><%= listing.address %></p>
