@@ -112,6 +112,8 @@ GEM
       railties (>= 3.2)
     erubi (1.12.0)
     execjs (2.8.1)
+    faker (3.1.1)
+      i18n (>= 1.8.11, < 2)
     ffi (1.15.5)
     font-awesome-sass (6.3.0)
       sassc (~> 2.0)
@@ -224,6 +226,8 @@ GEM
       railties (>= 6.0.0)
     tailwindcss-rails (2.0.24-arm64-darwin)
       railties (>= 6.0.0)
+    tailwindcss-rails (2.0.24-x86_64-darwin)
+      railties (>= 6.0.0)
     tailwindcss-rails (2.0.24-x86_64-linux)
       railties (>= 6.0.0)
     thor (1.2.1)
@@ -267,6 +271,7 @@ DEPENDENCIES
   debug
   devise
   dotenv-rails
+  faker
   font-awesome-sass (~> 6.1)
   jbuilder
   jsbundling-rails
