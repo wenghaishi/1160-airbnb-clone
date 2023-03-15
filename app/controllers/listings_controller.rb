@@ -11,6 +11,7 @@ class ListingsController < ApplicationController
   end
 
   def new
+    skip_authorization
     render layout: 'new_listing'
   end
 
