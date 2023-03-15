@@ -1,10 +1,11 @@
 class ListingsController < ApplicationController
   skip_before_action :authenticate_user!
   def index
-    @listings = Listing.all
+    @listings = policy_scope(Listing)
   end
 
   def show
+    skip_authorization
     @listing = Listing.find(params[:id])
   end
 
@@ -16,5 +17,10 @@ class ListingsController < ApplicationController
   end
 
   def destroy
+    authorize @listing
+
+    @listing = Listing.find(params[:id])
+    @listing.destroy
+    redirect_to listings_path, status: :see_other
   end
 end
