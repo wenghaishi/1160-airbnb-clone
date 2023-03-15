@@ -7,10 +7,14 @@ class BookingsController < ApplicationController
 
 
   def new
+    skip_authorization
+
     @booking = Booking.new
   end
 
   def create
+    skip_authorization
+
     @booking = Booking.new(booking_params)
     @booking.listing = @listing
     if @booking.save
