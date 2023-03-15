@@ -1,0 +1,31 @@
+<div class="loading-container">
+  <div class="loading-bar"></div>
+</div>
+
+<style>
+.loading-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.loading-bar {
+  width: 50%;
+  height: 10px;
+  background-color: #ccc;
+  animation: loading 2s infinite;
+}
+
+@keyframes loading {
+  0% {
+    width: 0%;
+  }
+  50% {
+    width: 50%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+</style>
