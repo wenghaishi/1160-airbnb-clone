@@ -1,4 +1,4 @@
-<div class="flex lg:flex-row flex-col items-center py-8 px-4">
+<%# <div class="flex lg:flex-row flex-col items-center py-8 px-4">
   <div class="container">
     <div class="flex flex-col lg:mr-16">
       <div class="text-xl font-bold">$471 SGD night</div>
@@ -23,4 +23,14 @@
       </div>
     </div>
   </div>
-</div>
+</div> %>
+
+<%= form_with url: "/listings/#{@listing.id}/bookings/new", method: :get do |f| %>
+  <span class="font-bold">$800 SGD</span><span> night</span>
+  <%= f.date_field :start_date, as: :date, html5: true, label: "CHECK-IN" %>
+  <%= f.date_field :end_date, as: :date, html5: true, label: "CHECKOUT" %>
+  <%= f.submit "Reserve", class: 'form-button' %>
+  <div class="justify-center"> You won't be charged yet </div>
+  <br>
+  <span> $800 SGD x 2 nights </span> $1,600 SGD
+<% end %>

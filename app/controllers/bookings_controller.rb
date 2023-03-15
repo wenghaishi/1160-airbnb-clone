@@ -16,16 +16,17 @@ class BookingsController < ApplicationController
     if @booking.save
       redirect_to listing_booking_path(@booking)
     else
-      render 'listing/show', status: :unprocessable_entity
+      render 'listings/show', status: :unprocessable_entity
+    end
   end
 
+  private
 
-private
+  def set_listing
+    @listing = Listing.find(params[:listing_id])
+  end
 
-def set_listing
-  @listing = Listing.find(params[:listing_id])
-end
-
-def booking_params
-  params.require(:booking).permit(:total)
+  def booking_params
+    params.require(:booking).permit(:start_date, :total, :end_date)
+  end
 end
