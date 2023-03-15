@@ -1,1 +1,17 @@
-hi
+<div class="container mx-auto py-10 mb-20">
+  <div class="grid grid-cols-1 gap-x-6 gap-y-10 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5">
+
+    <% @listings.each do |listing| %>
+      <%= link_to listing_path(listing) do %>
+        <div>
+          <div class="rounded-lg aspect-square overflow-hidden mb-2">
+            <img class="object-cover w-full h-full" src="<%= listing.img_url %>" alt="">
+          </div>
+          <p class="text-slate-600 mb-2"><%= listing.address %></p>
+          <p class="font-bold">$<%= listing.price %></p>
+        </div>
+      <% end %>
+    <% end %>
+
+  </div>
+</div>

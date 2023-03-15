@@ -1,3 +1,43 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import '~@fortawesome/fontawesome-free/css/all.min.css';
+
+.sign_up > .user_first_name, .sign_up > .user_last_name {
+  margin: 0;
+}
+
+.sign_up > .user_first_name > input {
+  border-radius: 0.5rem 0.5rem 0 0;
+  border-bottom: 0;
+}
+
+.sign_up > .user_last_name > input {
+  border-radius: 0 0 0.5rem 0.5rem;
+}
+
+.sign_up > .user_email {
+  margin-bottom: 0;
+}
+
+.sign_up > .user_email > input {
+  margin-bottom: 0.3rem;
+}
+
+.sign_up > .user_password {
+  margin-bottom: 20px;
+}
+
+.sign_up > .user_img_url {
+  margin-bottom: 0.3rem;
+}
+
+.sign_up {
+  margin-bottom: 0.3rem;
+}
+
+
+#submit {
+  background-color: #da0b63;
+  color: white;
+}

@@ -1,0 +1,22 @@
+<div class="container max-w-screen-lg mx-auto py-10 mb-20">
+  <div>
+    <h1 class="text-4xl font-extrabold mb-2"><%= @listing.name %></h1>
+    <div class="mb-4 text-sm underline"><a href="#"><%= @listing.address %></a></div>
+    <div class="overflow-hidden aspect-video mb-8">
+      <img class="object-cover w-full h-full" src="<%= @listing.img_url %>" alt="">
+    </div>
+    <div class="grid grid-cols-1 grid-flow-row-dense lg:grid-cols-5 gap-6">
+      <div class="col-span-3">
+        <div class="border-b-2 pb-4 mb-4">
+          <img class="rounded-full inline-block aspect-square object-cover w-10 mr-2" src="<%= @listing.owner.img_url %>" alt="">
+          Hosted by: <%= @listing.owner.first_name %> <%= @listing.owner.last_name %>
+        </div>
+        <p><%= @listing.description %></p>
+        <p class="mt-4"><span class="font-bold">$<%= @listing.price %></span> per night</p>
+      </div>
+      <div class="col-span-2 bg-slate-200 flex items-center justify-center rounded-lg">
+        Placeholder for Booking Form
+      </div>
+    </div>
+  </div>
+</div>
