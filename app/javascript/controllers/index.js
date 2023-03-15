@@ -6,3 +6,6 @@ import { application } from "./application"
 
 import HeaderController from "./header_controller"
 application.register("header", HeaderController)
+
+import NewListingController from "./new_listing_controller"
+application.register("new-listing", NewListingController)
