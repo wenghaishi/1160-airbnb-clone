@@ -14,8 +14,9 @@
         <p><%= @listing.description %></p>
         <p class="mt-4"><span class="font-bold">$<%= @listing.price %></span> per night</p>
       </div>
-      <div class="col-span-2 bg-slate-200 flex items-center justify-center rounded-lg">
-        Placeholder for Booking Form
+      <div class="col-span-2 bg-white flex items-center justify-center rounded-lg">
+      <%# RESERVATION %>
+      <%= render 'layouts/reservation' %>
       </div>
     </div>
   </div>

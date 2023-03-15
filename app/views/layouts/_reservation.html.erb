@@ -1,0 +1,9 @@
+<%= form_with url: "/listings/#{@listing.id}/bookings/new", method: :get do |f| %>
+  <div class="font-bold">$800 SGD</div><span> night</span>
+  <%= f.date_field :start_date, as: :date, html5: true, label: "CHECK-IN" %>
+  <%= f.date_field :end_date, as: :date, html5: true, label: "CHECKOUT" %>
+  <%= f.submit "Reserve", class: 'form-button' %>
+  <div class="justify-center"> You won't be charged yet </div>
+  <br>
+  <span> $800 SGD x 2 nights</span><span> $1,600</span>
+<% end %>
