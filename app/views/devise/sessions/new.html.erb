@@ -1,20 +1,25 @@
-<h2>Log in</h2>
-
-<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="form-inputs">
-    <%= f.input :email,
-                required: false,
-                autofocus: true,
-                input_html: { autocomplete: "email" } %>
-    <%= f.input :password,
-                required: false,
-                input_html: { autocomplete: "current-password" } %>
-    <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
-  </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Log in" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+<%# <%= render "devise/shared/links" %>
+<div class="max-w-md mx-auto bg-white shadow-xl mt-2 rounded-xl border">
+  <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <div class="flex items-center justify-between px-6 border-b py-5">
+      <p><a href="<%= root_path %>"><i class="fa-regular fa-less-than"></i></a></p>
+      <h2><b>Sign in</b></h2>
+      <p></p>
+    </div>
+    <div class="p-6 pb-3">
+      <div class="sign_up">
+        <%= f.input :email,
+              required: true,
+              autofocus: true,
+              label: false,
+              input_html: { autocomplete: "email", placeholder: "Email", class: "rounded-lg border z-0 w-full py-2 px-3 text-gray-700 focus:outline-none focus:shadow-outline"}%>
+        <%= f.input :password,
+              required: true,
+              label: false,
+              input_html: { autocomplete: "new-password", placeholder: "Password", class: "rounded-lg border z-0 w-full py-2 px-3 text-gray-700 focus:outline-none focus:shadow-outline" } %>
+        <%= f.button :submit, "Sign In", id: "submit", class: "rounded-lg border z-0 w-full py-2 px-3 text-gray-700 focus:outline-none focus:shadow-outline"%>
+        <%= f.error_notification %>
+      </div>
+    </div>
+  <% end %>
+</div>
