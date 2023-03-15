@@ -33,6 +33,8 @@
       <button class="border-2	border-gray-300	rounded-full px-6 py-2 font-bold">Save & exit</button>
     </div>
     </div>
+
+    <div class="relative overflow-y-hidden">
     <%# first form %>
     <div class="flex flex-col items-center content-center h-screen py-16 gap-y-4" id="first-form">
       <h1 class="text-5xl max-w5/6">Now, lets give your flat/apartment a title<h1>
@@ -44,18 +46,35 @@
     <%# end of first form %>
 
     <%# second form %>
-    <div class="hidden flex-col items-center content-center h-screen py-16 gap-y-4" id="first-form">
-      <h1 class="text-5xl max-w5/6">Now, lets give your flat/apartment a title<h1>
-      <h2 class="text-xl text-slate-400"> Short titles work best. Have fun with it - you can always change it later.</h2>
-      <div class="mb-3 pt-0 w-2/4 h-1/4 mt-8">
-        <textarea type="text" class="px-3 py-3 placeholder-slate-300 text-slate-600 relative bg-white rounded text-sm border-0 shadow outline-none focus:outline-none focus:ring w-full h-full"></textarea>
+    <div class="hidden flex flex-col items-center content-center h-screen py-16 gap-y-4" id="second-form">
+      <h1 class="text-5xl max-w5/6">Now set your price<h1>
+      <h2 class="text-xl text-slate-400"> You can change it anytime.</h2>
+      <div class="mb-3 flex flex-col pt-0 w-2/4 h-1/4 mt-8 items-center content-center">
+        <input type="number" id="points" name="points" step="1" class="border-2 border-slate-300 px-8 py-2">
+        <h1 class="my-4">per night</h1>
+        <div class="bg-slate-300 h-full w-3/4 flex items-center place-content-evenly text-center rounded-lg">
+          <h1 class="text-md"> Offer 20% off for your first 3 guests to help your place stand out.</h1>
+          <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+        </div>
       </div>
     </div>
     <%# end of second form %>
 
-    <div class="absolute bottom-0 flex flex-row place-content-between w-full px-12 mb-8">
+    <%# last form %>
+    <div class="hidden flex flex-col items-center content-center h-screen py-24 gap-y-4" id="last-form">
+      <h1 class="text-5xl max-w5/6">Congrats! Your listing is live~<h1>
+      <h2 class="text-xl text-slate-400"> Happy hosting!</h2>
+    </div>
+    <%# end of last form %>
+    </div>
+
+    <div class="absolute bottom-0 flex flex-row place-content-between w-full px-12 mb-8" id="firstFooter">
       <button class="inline-block rounded-xl px-12 py-2 mb-6 font-bold">Back</button>
       <button class="inline-block rounded-xl px-12 py-2 mb-6 font-bold bg-slate-300	text-white" id="next-button"data-new-listing-target="next">Next</button>
+    </div>
+    <div class="hidden absolute bottom-0 flex flex-row place-content-between w-full  px-12 mb-8" id="secondFooter">
+      <button class="inline-block rounded-xl px-12 py-2 mb-6 font-bold">Back</button>
+      <button class="inline-block rounded-xl px-12 py-2 mb-6 font-bold bg-slate-300	text-white" id="next-button"data-new-listing-target="next1">Next</button>
     </div>
   </body>
 </html>
