@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import '~@fortawesome/fontawesome-free/css/all.min.css';
 
 .sign_up > .user_first_name, .sign_up > .user_last_name {
   margin: 0;
@@ -24,7 +25,11 @@
 }
 
 .sign_up > .user_password {
-  margin-bottom: 30px;
+  margin-bottom: 20px;
+}
+
+.sign_up > .user_img_url {
+  margin-bottom: 0.3rem;
 }
 
 .sign_up {

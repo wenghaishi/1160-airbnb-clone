@@ -1,9 +1,9 @@
-<p></p>
-<div class="max-w-md mx-auto bg-white shadow-md rounded-xl">
+<div class="max-w-md mx-auto bg-white shadow-xl mt-2 rounded-xl border">
   <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-    <div class="flex items-center justify-center px-6 border-b py-5">
-      <p><i class="fa-regular fa-less-than"></i></p>
-      <h2>Sign up</h2>
+    <div class="flex items-center justify-between px-6 border-b py-5">
+      <p><a href="http://[::1]:3000/"><i class="fa-regular fa-less-than"></i></a></p>
+      <h2><b>Sign up</b></h2>
+      <p></p>
     </div>
     <div class="p-6 pb-3">
       <div class="mb-3 sign_up">
@@ -30,6 +30,11 @@
               required: true,
               label: false,
               input_html: { autocomplete: "new-password", placeholder: "Password", class: "rounded-lg border z-0 w-full py-2 px-3 text-gray-700 focus:outline-none focus:shadow-outline" } %>
+        <%= f.input :img_url,
+              required: true,
+              label: false,
+              input_html: { autocomplete: "img_url", placeholder: "Picture Url", class: "rounded-lg border z-0 w-full py-2 px-3 text-gray-700 focus:outline-none focus:shadow-outline" } %>
+        <p class="text-xs text-gray-400 mb-5">Enter your profile picture Img Url</p>
         <%= f.button :submit, "Sign Up", id: "submit", class: "rounded-lg border z-0 w-full py-2 px-3 text-gray-700 focus:outline-none focus:shadow-outline"%>
         <%= f.error_notification %>
       </div>
