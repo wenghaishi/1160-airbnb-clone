@@ -15,14 +15,14 @@ p 'Destroying Bookings'
 Booking.destroy_all
 
 p 'Creating Users & Flats'
+user = User.create!(
+  first_name: Faker::Name.first_name,
+  last_name: Faker::Name.last_name,
+  email: "newemail@email.com",
+  password: "123456",
+  img_url: 'https://source.unsplash.com/random'
+)
 10.times do
-  user = User.create!(
-    first_name: Faker::Name.first_name,
-    last_name: Faker::Name.last_name,
-    email: Faker::Internet.email,
-    password: Faker::Internet.password(min_length: 10, max_length: 20),
-    img_url: 'https://source.unsplash.com/random'
-  )
   listing = Listing.new(
     name: Faker::Restaurant.name,
     address: Faker::Address.full_address,
