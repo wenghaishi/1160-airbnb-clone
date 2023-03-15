@@ -1,7 +1,19 @@
 <div class="container max-w-screen-lg mx-auto py-10 mb-20">
   <div>
-    <h1 class="text-4xl font-extrabold mb-2"><%= @listing.name %></h1>
-    <div class="mb-4 text-sm underline"><a href="#"><%= @listing.address %></a></div>
+    <div class="flex justify-between mb-4">
+      <div>
+        <h1 class="text-4xl font-extrabold mb-2"><%= @listing.name %></h1>
+        <div class="text-sm underline"><a href="#"><%= @listing.address %></a></div>
+      </div>
+        <div class="flex items-end text-stone-500">
+          <% if policy(@listing).destroy? %>
+            <div><a href=""><i class="fa-solid fa-pen-to-square"></i> Edit</a></div>
+          <% end %>
+          <% if policy(@listing).destroy? %>
+            <div><a href=""></div><i class="fa-solid fa-trash-can ml-4"></i> Delete</a></div>
+          <% end %>
+        </div>
+    </div>
     <div class="overflow-hidden aspect-video mb-8">
       <img class="object-cover w-full h-full" src="<%= @listing.img_url %>" alt="">
     </div>

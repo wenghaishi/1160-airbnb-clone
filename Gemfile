@@ -50,6 +50,8 @@ gem "sassc-rails"
 
 gem "devise"
 
+gem "pundit"
+
 gem "tailwindcss-rails"
 
 gem "faker"
