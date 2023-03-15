@@ -10,7 +10,7 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
 
-  <body>
+  <body data-controller="new-listing">
   <div class="flex flex-row px-16 py-12 justify-between	w-full">
     <%# Airbnb logo %>
     <div class="inline-flex text-red-500">
@@ -28,15 +28,34 @@
         </a>
     </div>
     <%# End of Airbnb logo %>
-    <div class="flex">
+    <div class="flex" >
       <button class="border-2	border-gray-300	rounded-full px-6 py-2 font-bold mr-8">Questions?</button>
       <button class="border-2	border-gray-300	rounded-full px-6 py-2 font-bold">Save & exit</button>
     </div>
-  </div>
-   <%= yield %>
+    </div>
+    <%# first form %>
+    <div class="flex flex-col items-center content-center h-screen py-16 gap-y-4" id="first-form">
+      <h1 class="text-5xl max-w5/6">Now, lets give your flat/apartment a title<h1>
+      <h2 class="text-xl text-slate-400"> Short titles work best. Have fun with it - you can always change it later.</h2>
+      <div class="mb-3 pt-0 w-2/4 h-1/4 mt-8">
+        <textarea type="text" class="px-3 py-3 placeholder-slate-300 text-slate-600 relative bg-white rounded text-sm border-0 shadow outline-none focus:outline-none focus:ring w-full h-full"></textarea>
+      </div>
+    </div>
+    <%# end of first form %>
+
+    <%# second form %>
+    <div class="hidden flex-col items-center content-center h-screen py-16 gap-y-4" id="first-form">
+      <h1 class="text-5xl max-w5/6">Now, lets give your flat/apartment a title<h1>
+      <h2 class="text-xl text-slate-400"> Short titles work best. Have fun with it - you can always change it later.</h2>
+      <div class="mb-3 pt-0 w-2/4 h-1/4 mt-8">
+        <textarea type="text" class="px-3 py-3 placeholder-slate-300 text-slate-600 relative bg-white rounded text-sm border-0 shadow outline-none focus:outline-none focus:ring w-full h-full"></textarea>
+      </div>
+    </div>
+    <%# end of second form %>
+
     <div class="absolute bottom-0 flex flex-row place-content-between w-full px-12 mb-8">
       <button class="inline-block rounded-xl px-12 py-2 mb-6 font-bold">Back</button>
-      <button class="inline-block rounded-xl px-12 py-2 mb-6 font-bold bg-slate-300	text-white">Next</button>
+      <button class="inline-block rounded-xl px-12 py-2 mb-6 font-bold bg-slate-300	text-white" id="next-button"data-new-listing-target="next">Next</button>
     </div>
   </body>
 </html>
