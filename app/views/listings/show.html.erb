@@ -39,7 +39,7 @@
           <%# OWNER AVATAR %>
           <div class="w-14">
             <% if @listing.owner.photo.key %>
-              <%= cl_image_tag @listing.owner.photo.key, crop: :fill, class: "rounded-full aspect-square align-middle self-center" %>
+              <%= cl_image_tag @listing.owner.photo.key, crop: :fill, class: " object-cover rounded-full aspect-square align-middle self-center" %>
             <% else %>
                 <svg
                             viewBox="0 0 32 32"
