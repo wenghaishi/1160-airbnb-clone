@@ -90,7 +90,7 @@
             </div>
             <div class="flex flex-grow-0 flex-shrink-0 h-10 w-12 pl-5">
               <!-- avatar -->
-              <% if user_signed_in? %>
+              <% if user_signed_in? && current_user.photo.key %>
                 <%= cl_image_tag current_user.photo.key, crop: :fill, class: "rounded-full aspect-square align-middle self-center" %>
               <% else %>
                 <svg
