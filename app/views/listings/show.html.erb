@@ -31,6 +31,7 @@
             <h1 style="font-weight: 600; font-size: 20px;">Entire rental unit hosted by <%= @listing.owner.first_name %> <%= @listing.owner.last_name %></h1>
             <p style="font-weight: 300;" >4 guests · 2 bedrooms · 3 beds · 1 bathroom</p>
           </div>
+          <%# OWNER AVATAR %>
           <img class="rounded-full self-center inline-block aspect-square object-cover w-14 mr-2" src="<%= @listing.owner.img_url %>" alt="">
         </div>
         <div class="border-b mt-4 mb-4 pt-4 pb-4" style="font-family: 'Plus Jakarta Sans', sans-serif;">
@@ -112,6 +113,8 @@
     </div>
   </div>
 </div>
+
+
 <footer class="border">
   <div class="container max-w-screen-lg mx-auto pt-10" style="font-family: 'Plus Jakarta Sans', sans-serif;">
     <h1 class="font-semibold text-2xl">Things to know</h1>
