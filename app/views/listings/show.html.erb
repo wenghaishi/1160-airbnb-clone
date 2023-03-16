@@ -20,7 +20,7 @@
     </div>
     <%# LISTING PHOTO %>
     <div class="overflow-hidden aspect-video mb-8">
-      <% if @listing.photo %>
+      <% if @listing.photo.key %>
         <img class="object-cover w-full h-full" src="<%= cl_image_path @listing.photo.key %>" alt="">
       <% else %>
         <img class="object-cover w-full h-full" src="https://source.unsplash.com/random" alt="">
