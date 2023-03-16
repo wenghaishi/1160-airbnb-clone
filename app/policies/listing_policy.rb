@@ -14,6 +14,14 @@ class ListingPolicy < ApplicationPolicy
     true
   end
 
+  def new?
+    true
+  end
+
+  def create?
+    true
+  end
+
   def destroy?
     record.owner == user
   end
