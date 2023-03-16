@@ -20,7 +20,11 @@
     </div>
     <%# LISTING PHOTO %>
     <div class="overflow-hidden aspect-video mb-8">
-      <img class="object-cover w-full h-full" src="<%= @listing.img_url %>" alt="">
+      <% if @listing.photo.key %>
+        <img class="object-cover w-full h-full" src="<%= cl_image_path @listing.photo.key %>" alt="">
+      <% else %>
+        <img class="object-cover w-full h-full" src="https://source.unsplash.com/random" alt="">
+      <% end %>
     </div>
     <%# CONTENT %>
     <div class="grid grid-cols-1 lg:grid-cols-5 gap-12">
@@ -31,7 +35,24 @@
             <h1 style="font-weight: 600; font-size: 20px;">Entire rental unit hosted by <%= @listing.owner.first_name %> <%= @listing.owner.last_name %></h1>
             <p style="font-weight: 300;" >4 guests · 2 bedrooms · 3 beds · 1 bathroom</p>
           </div>
-          <img class="rounded-full self-center inline-block aspect-square object-cover w-14 mr-2" src="<%= @listing.owner.img_url %>" alt="">
+
+          <%# OWNER AVATAR %>
+          <div class="w-14">
+            <% if @listing.owner.photo.key %>
+              <%= cl_image_tag @listing.owner.photo.key, crop: :fill, class: "rounded-full aspect-square align-middle self-center" %>
+            <% else %>
+                <svg
+                            viewBox="0 0 32 32"
+                            xmlns="http://www.w3.org/2000/svg"
+                            aria-hidden="true"
+                            role="presentation"
+                            focusable="false"
+                            style="display: block; height: 100%; width: 100%; fill: currentcolor;"
+                        >
+                  <path d="m16 .7c-8.437 0-15.3 6.863-15.3 15.3s6.863 15.3 15.3 15.3 15.3-6.863 15.3-15.3-6.863-15.3-15.3-15.3zm0 28c-4.021 0-7.605-1.884-9.933-4.81a12.425 12.425 0 0 1 6.451-4.4 6.507 6.507 0 0 1 -3.018-5.49c0-3.584 2.916-6.5 6.5-6.5s6.5 2.916 6.5 6.5a6.513 6.513 0 0 1 -3.019 5.491 12.42 12.42 0 0 1 6.452 4.4c-2.328 2.925-5.912 4.809-9.933 4.809z"></path>
+                </svg>
+            <% end %>
+          </div>
         </div>
         <div class="border-b mt-4 mb-4 pt-4 pb-4" style="font-family: 'Plus Jakarta Sans', sans-serif;">
           <div class="flex mb-6">
@@ -103,8 +124,21 @@
       </div>
     </div>
   </div>
+
+  <%# MAP %>
+  <div class="mt-6 border-y pt-8 pb-16">
+    <h1 class="mb-4" style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 500; font-size: 22px;">Where you'll be</h1>
+    <div id="map"
+         data-controller="map"
+         data-map-markers-value="<%= @marker.to_json %>"
+         data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
+         class="w-full aspect-video bg-slate-100">
+    </div>
+  </div>
 </div>
-<footer class="border">
+
+
+<footer class="">
   <div class="container max-w-screen-lg mx-auto pt-10" style="font-family: 'Plus Jakarta Sans', sans-serif;">
     <h1 class="font-semibold text-2xl">Things to know</h1>
     <div class="mx-auto w-full container">

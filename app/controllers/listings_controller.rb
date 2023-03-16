@@ -9,6 +9,11 @@ class ListingsController < ApplicationController
     skip_authorization
     @listing = Listing.find(params[:id])
     @booking = Booking.new
+
+    @marker = [{ lat: @listing.latitude,
+                 lng: @listing.longitude,
+                 info_window_html: render_to_string(partial: "info_window", locals: { listing: @listing }),
+                 marker_html: render_to_string(partial: "marker") }]
   end
 
   def new

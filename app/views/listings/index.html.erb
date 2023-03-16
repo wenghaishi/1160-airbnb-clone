@@ -4,7 +4,11 @@
       <%= link_to listing_path(listing) do %>
         <div>
           <div class="rounded-lg aspect-square overflow-hidden mb-2">
-            <img class="object-cover w-full h-full" src="<%= listing.img_url %>" alt="">
+            <% if listing.photo.key %>
+              <img class="object-cover w-full h-full" src="<%= cl_image_path listing.photo.key %>" alt="">
+            <% else %>
+              <img class="object-cover w-full h-full" src="https://source.unsplash.com/random" alt="">
+            <% end %>
           </div>
           <p class="text-slate-600 mb-2"><%= listing.address %></p>
           <p class="font-bold">$<%= listing.price %></p>
