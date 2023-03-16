@@ -30,5 +30,7 @@ export default class extends Controller {
     const secondItem = document.getElementById('second-form');
     lastItem.classList.remove('hidden');
     secondItem.classList.toggle('hidden');
+    const secondFooter = document.getElementById('secondFooter');
+    secondFooter.classList.add('hidden');
   }
 }
