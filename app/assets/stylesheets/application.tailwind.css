@@ -44,6 +44,7 @@
 
 .form-button {
   display: inline-block;
+  margin-top:20px;
   font-weight: 400;
   text-align: center;
   white-space: nowrap;
@@ -60,6 +61,17 @@
   color: #fff;
   background-color: #cc0c0e;
   border-color: #cc0c0e;
-  width: 100%;
+  width: 80%;
+  margin-left:40px;
   /* transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out,box-shadow .15s ease-in-out; */
+}
+
+.form-content {
+  text-align: center;
+  margin-top:25px;
+  margin-bottom: 25px;
+}
+
+.form-title{
+  text-align: left;
 }

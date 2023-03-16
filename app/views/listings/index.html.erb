@@ -1,6 +1,5 @@
 <div class="container mx-auto py-10 mb-20">
   <div class="grid grid-cols-1 gap-x-6 gap-y-10 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5">
-
     <% @listings.each do |listing| %>
       <%= link_to listing_path(listing) do %>
         <div>
@@ -12,6 +11,6 @@
         </div>
       <% end %>
     <% end %>
-
   </div>
 </div>
+<%= render 'layouts/footer' %>

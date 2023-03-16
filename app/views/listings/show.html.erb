@@ -1,23 +1,30 @@
 <div class="container max-w-screen-lg mx-auto py-10 mb-20">
   <div>
+    <%# NAME & ADDRESS %>
     <div class="flex justify-between mb-4">
       <div>
         <h1 class="text-4xl font-extrabold mb-2"><%= @listing.name %></h1>
         <div class="text-sm underline"><a href="#"><%= @listing.address %></a></div>
       </div>
-        <div class="flex items-end text-stone-500">
-          <% if policy(@listing).destroy? %>
-            <div><a href=""><i class="fa-solid fa-pen-to-square"></i> Edit</a></div>
+      <%# SHOW EDIT & DELETE IF OWNER IS LOGGED IN %>
+      <div class="flex items-end text-stone-500">
+        <% if policy(@listing).destroy? %>
+          <div><a href=""><i class="fa-solid fa-pen-to-square"></i> Edit</a></div>
+        <% end %>
+        <% if policy(@listing).destroy? %>
+          <%= button_to @listing, method: :delete, form: { data: { turbo_confirm: 'Are you sure?' } } do %>
+            <div><i class="fa-solid fa-trash-can ml-4"></i> Delete</div>
           <% end %>
-          <% if policy(@listing).destroy? %>
-            <div><a href=""></div><i class="fa-solid fa-trash-can ml-4"></i> Delete</a></div>
-          <% end %>
-        </div>
+        <% end %>
+      </div>
     </div>
+    <%# LISTING PHOTO %>
     <div class="overflow-hidden aspect-video mb-8">
       <img class="object-cover w-full h-full" src="<%= @listing.img_url %>" alt="">
     </div>
-    <div class="grid grid-cols-1 grid-flow-row-dense lg:grid-cols-5 gap-6">
+    <%# CONTENT %>
+    <div class="grid grid-cols-1 lg:grid-cols-5 gap-12">
+      <%# LISTING INFORMATION %>
       <div class="col-span-3">
         <div class="border-b-2 pb-4 mb-4">
           <img class="rounded-full inline-block aspect-square object-cover w-10 mr-2" src="<%= @listing.owner.img_url %>" alt="">
@@ -26,10 +33,11 @@
         <p><%= @listing.description %></p>
         <p class="mt-4"><span class="font-bold">$<%= @listing.price %></span> per night</p>
       </div>
-      <div class="col-span-2 bg-white flex items-center justify-center rounded-lg">
       <%# RESERVATION %>
-      <%= render 'layouts/reservation' %>
+      <div class="col-span-2">
+        <%= render 'layouts/reservation' %>
       </div>
     </div>
   </div>
 </div>
+<%= render 'layouts/listing_footer' %>
