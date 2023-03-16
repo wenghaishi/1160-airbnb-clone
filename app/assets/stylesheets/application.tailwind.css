@@ -75,3 +75,23 @@
 .form-title{
   text-align: left;
 }
+
+
+.listing-input {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding-left: 50px;
+  padding-right: 50px;
+  margin-top: 50px;
+  gap:50px;
+  position: absolute;
+}
+
+.listings-input {
+  background-color: green;
+}
+

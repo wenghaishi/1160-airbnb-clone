@@ -1,10 +1,50 @@
-<%= simple_form_for(@listing) do |f| %>
-  <!-- [...] -->
-  <%= f.input :name %>
-  <%= f.input :address %>
-  <%= f.input :description %>
-  <%= f.input :price %>
-  <%= f.input :photo, as: :file %>
-  <%= f.button :submit %>
-  <!-- [...] -->
-<% end %>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>New listing</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+  </head>
+
+  <body data-controller="new-listing" >
+      <%= simple_form_for(@listing) do |f| %>
+        <div class="relative overflow-y-hidden scrollbar-hide">
+            <!-- [name input] -->
+          <div class="listing-input">
+            <h1 class="text-5xl max-w5/6">Now, let's give your flat/apartment a title</h1>
+            <%= f.input :name, label: false, placeholder: "Enter title here", input_html: { class: 'listing-fields' }  %>
+          </div>
+          <div class="absolute top-1/6 flex flex-row place-content-between w-full px-12 mb-8" id="firstFooter">
+            <button class="inline-block rounded-xl px-12 py-2 mt-24 font-bold">Back</button>
+            <button class="inline-block rounded-xl px-12 py-2 mt-24 font-bold bg-slate-300 hover:bg-slate-400	text-white" id="next-button"data-new-listing-target="next">Next</button>
+          </div>
+            <!-- [address input] -->
+          <div class="listing-input hidden">
+            <h1 class="text-5xl max-w5/6">Please enter an address for your listing</h1>
+            <%= f.input :address %>
+          </div class="listing-input">
+            <!-- [description input] -->
+          <div class="listing-input hidden">
+            <h1 class="text-5xl max-w5/6">Please enter a description for your listing</h1>
+            <%= f.input :description %>
+          </div class="listing-input">
+            <!-- [price input] -->
+          <div class="listing-input hidden">
+            <h1 class="text-5xl max-w5/6">Please enter a price for your listing</h1>
+            <%= f.input :price %>
+          </div>
+            <!-- [...] -->
+          <div class="listing-input hidden">
+            <h1 class="text-5xl max-w5/6">Please add a photo for your listing</h1>
+            <%= f.input :photo, as: :file %>
+            <div><%= f.button :submit %></div>
+          </div>
+          <!-- [...] -->
+        </div>
+      <% end %>
+  </body>
+</html>

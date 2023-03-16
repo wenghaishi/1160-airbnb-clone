@@ -14,7 +14,7 @@ class ListingsController < ApplicationController
   def new
     @listing = Listing.new
     authorize @listing
-    render layout: 'new'
+    render layout: 'new_listing'
   end
 
   def create

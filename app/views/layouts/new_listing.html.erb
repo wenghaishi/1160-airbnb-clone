@@ -5,9 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <link rel="stylesheet" href="path/to/font-awesome/css/all.min.css">
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
   </head>
 
   <body data-controller="new-listing">
@@ -36,31 +40,24 @@
 
     <div class="relative overflow-y-hidden">
     <%# first form %>
+    <%= simple_form_for(@listing) do |f| %>
     <div class="flex flex-col items-center content-center h-screen py-16 gap-y-4" id="first-form">
-      <h1 class="text-5xl max-w5/6">Now, lets give your flat/apartment a title<h1>
-      <h2 class="text-xl text-slate-400"> Short titles work best. Have fun with it - you can always change it later.</h2>
+      <h1 class="text-5xl max-w5/6">Lets give your flat/apartment a title & description<h1>
+      <h2 class="text-xl mb-8 text-slate-400"> Short titles work best. Have fun with it - you can always change it later.</h2>
+      <%= f.input :name, label: false, as: :text, placeholder: "Enter title here", input_html: {  class: "rounded-lg border z-0 w-full py-2 px-3 text-gray-700 focus:outline-none focus:shadow-outline m-0"}%> 
+      <%= f.input :description, label: false, as: :text, placeholder: "Enter description here", input_html: {  class: "rounded-lg border z-0 w-full py-2 px-3 text-gray-700 focus:outline-none focus:shadow-outline m-0"}%> 
       <div class="mb-3 pt-0 w-2/4 h-1/4 mt-8">
-        <textarea type="text" class="px-3 py-3 placeholder-slate-300 text-slate-600 relative bg-white rounded text-sm border-0 shadow outline-none focus:outline-none focus:ring w-full h-full"></textarea>
       </div>
-        <%= simple_form_for(@listing) do |f| %>
-        <!-- [...] -->
-        <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-        <!-- [...] -->
-        <% end %>
-      </div>
+    </div>
     <%# end of first form %>
 
     <%# second form %>
     <div class="hidden flex flex-col items-center content-center h-screen py-16 gap-y-4" id="second-form">
-      <h1 class="text-5xl max-w5/6">Now set your price<h1>
+      <h1 class="text-5xl max-w5/6">Enter the address of your flat/apartment<h1>
       <h2 class="text-xl text-slate-400"> You can change it anytime.</h2>
+      <%= f.input :address, label: false, as: :text, placeholder: "Enter address here", input_html: {  class: "rounded-lg border z-0 w-full py-2 px-3 text-gray-700 focus:outline-none focus:shadow-outline m-0"} %>
+      <%= f.input :price %>
       <div class="mb-3 flex flex-col pt-0 w-2/4 h-1/4 mt-8 items-center content-center">
-        <input type="number" id="points" name="points" step="1" class="border-2 border-slate-300 px-8 py-2">
-        <h1 class="my-4">per night</h1>
-        <div class="bg-slate-300 h-full w-3/4 flex items-center place-content-evenly text-center rounded-lg">
-          <h1 class="text-md"> Offer 20% off for your first 3 guests to help your place stand out.</h1>
-          <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
-        </div>
       </div>
     </div>
     <%# end of second form %>
@@ -71,6 +68,7 @@
       <h2 class="text-xl text-slate-400"> Happy hosting!</h2>
     </div>
     <%# end of last form %>
+    <% end %>
     </div>
 
     <div class="absolute bottom-0 flex flex-row place-content-between w-full px-12 mb-8" id="firstFooter">
