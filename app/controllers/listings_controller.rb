@@ -13,6 +13,7 @@ class ListingsController < ApplicationController
 
   def new
     skip_authorization
+    @listing = Listing.new
     render layout: 'new_listing'
   end
 
