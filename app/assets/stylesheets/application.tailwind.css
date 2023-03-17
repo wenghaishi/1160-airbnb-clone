@@ -66,6 +66,16 @@
   /* transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out,box-shadow .15s ease-in-out; */
 }
 
+.mapboxgl-popup {
+  max-width: 200px;
+}
+
+.mapboxgl-popup-content {
+  text-align: center;
+  font-family: "Open Sans", sans-serif;
+
+}
+
 .form-content {
   text-align: center;
   margin-top:25px;
@@ -75,7 +85,6 @@
 .form-title{
   text-align: left;
 }
-
 
 .listing-input {
   display: flex;
@@ -95,4 +104,3 @@
   background-color: #EF4444;
   color:white;
 }
-
