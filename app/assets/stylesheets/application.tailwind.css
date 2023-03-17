@@ -134,6 +134,14 @@ html {
   display: block;
 }
 
+#listings-content {
+  display: block;
+}
+
+#listings-content.show {
+  display: none;
+}
+
 #show-map {
   display: block;
 }

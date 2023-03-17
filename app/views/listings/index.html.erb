@@ -6,7 +6,7 @@
       class="w-screen h-screen">
 </div>
 
-<div class="container mx-auto py-10 mb-20">
+<div id="listings-content" class="container mx-auto py-10 mb-20">
   <div class="grid grid-cols-1 gap-x-8 gap-y-10 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
     <% @listings.each do |listing| %>
       <%= link_to listing_path(listing) do %>
@@ -53,11 +53,13 @@
         /* toggles between adding and removing the show class, which is used to hide and show the content */
         function showMap() {
           document.getElementById("map-index").classList.toggle("show");
+          document.getElementById("listings-content").classList.toggle("show");
           document.getElementById("show-map").classList.toggle("show");
           document.getElementById("show-list").classList.toggle("show");
         }
         function showList() {
           document.getElementById("map-index").classList.toggle("show");
+          document.getElementById("listings-content").classList.toggle("show");
           document.getElementById("show-list").classList.toggle("show");
           document.getElementById("show-map").classList.toggle("show");
         }
