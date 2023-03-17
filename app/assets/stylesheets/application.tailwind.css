@@ -154,3 +154,10 @@ html {
   transform: scale(1);
   pointer-events: all;
 }
+
+#map {
+  position: relative !important;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  height: inherit;
+}
