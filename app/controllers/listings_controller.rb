@@ -36,7 +36,7 @@ class ListingsController < ApplicationController
     authorize @listing
 
     if @listing.save
-      redirect_to listings_path
+      redirect_to user_path(current_user)
       # redirect_to @listing
     else
       redirect_to new_listing_path

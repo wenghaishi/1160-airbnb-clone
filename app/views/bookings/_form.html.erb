@@ -1,0 +1,8 @@
+<div class="container max-w-screen-lg mx-auto py-5" style="font-family: 'Plus Jakarta Sans', sans-serif;">
+  <%= simple_form_for ([@listing, @booking]) do |f| %>
+    <%= f.input :total, label: "Select One",
+      :collection => ["MasterCard", "Amex", "Visa", "Discover"],
+      prompt: "Select One" %>
+  <% end %>
+   <%= link_to "Confirm Payment", user_path(current_user), class: "bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full"%>
+</div>

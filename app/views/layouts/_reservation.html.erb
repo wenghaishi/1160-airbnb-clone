@@ -1,11 +1,14 @@
-<div class="shadow-2xl my-4 rounded-xl border-slate-300 flex flex-col items-center content-center">
-<%= form_with url: "/listings/#{@listing.id}/bookings/new", method: :get do |f| %>
-  <div><span class="font-bold form-title"> <%= @listing.price %> SGD</span><span> night</span></div>
-      <%= f.date_field :start_date, as: :date, html5: true %>
-      <%= f.date_field :end_date, as: :date, html5: true %>
-  <%= f.submit "Reserve", class: 'form-button'  %>
-  <div class="form-content">
-    <span> <%= @listing.price %> SGD x 2 nights</span>
-  </div>
-<% end %>
+<div class="border rounded-lg p-6 shadow-md sticky" style="top: 100px;">
+  <h2 class="mb-4"><span class="text-xl font-bold">$<%= @listing.price %> SGD </span> night </h2>
+  <%= simple_form_for [@listing, @booking] do |f| %>
+    <div class="flex mb-4">
+      <div class="border border-r-0 w-1/2 rounded-l-lg px-2 pt-2">
+        <%= f.input :start_date, as: :date, html5: true, label:"Check-In" %>
+      </div>
+      <div class="border w-1/2 rounded-r-lg px-2 pt-2">
+        <%= f.input :end_date, as: :date, html5: true, label:"Checkout" %>
+      </div>
+    </div>
+    <%= f.submit "Reserve", class: "rounded-lg border z-0 w-full py-2 px-3 mt-8 text-white font-semibold focus:outline-none focus:shadow-outline bg-gradient-to-r from-pink-600 via-red-600 to-pink-600 py-3 text-lg" %>
+  <% end %>
 </div>
