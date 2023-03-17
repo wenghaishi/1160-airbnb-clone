@@ -126,13 +126,14 @@
   </div>
 
   <%# MAP %>
-  <div class="mt-6 border-y pt-8 pb-16">
+  <div class="mt-6 border-y pt-8 pb-16"
+       data-controller="map"
+       data-map-markers-value="<%= @marker.to_json %>"
+       data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
     <h1 class="mb-4" style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 500; font-size: 22px;">Where you'll be</h1>
     <div id="map"
-         data-controller="map"
-         data-map-markers-value="<%= @marker.to_json %>"
-         data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
-         class="w-full aspect-video bg-slate-100">
+         data-map-target="mapWrapper"
+         class="h-screen top-0 left-0 show">
     </div>
   </div>
 </div>
