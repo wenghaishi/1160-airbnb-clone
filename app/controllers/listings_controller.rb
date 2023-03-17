@@ -9,15 +9,29 @@ class ListingsController < ApplicationController
     skip_authorization
     @listing = Listing.find(params[:id])
     @booking = Booking.new
+
+    @marker = [{ lat: @listing.latitude,
+                 lng: @listing.longitude,
+                 info_window_html: render_to_string(partial: "info_window", locals: { listing: @listing }),
+                 marker_html: render_to_string(partial: "marker") }]
   end
 
   def new
-    skip_authorization
     @listing = Listing.new
-    render layout: 'new_listing'
+    authorize @listing
+    render layout: 'new'
   end
 
   def create
+    @listing = Listing.new(listing_params)
+    @listing.owner = current_user
+    authorize @listing
+    if @listing.save
+      redirect_to listings_path
+      # redirect_to @listing
+    else
+      redirect_to new_listing_path
+    end
   end
 
   def destroy
@@ -26,4 +40,11 @@ class ListingsController < ApplicationController
     @listing.destroy
     redirect_to listings_path, status: :see_other
   end
+
+  private
+
+  def listing_params
+    params.require(:listing).permit(:name, :description, :address, :photo, :price)
+  end
+
 end
