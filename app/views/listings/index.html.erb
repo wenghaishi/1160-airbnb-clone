@@ -1,16 +1,30 @@
-<div class="container mx-auto py-10 mb-20">
-  <div class="grid grid-cols-1 gap-x-6 gap-y-10 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5">
-    <% @listings.each do |listing| %>
-      <%= link_to listing_path(listing) do %>
-        <div>
-          <div class="rounded-lg aspect-square overflow-hidden mb-2">
-            <img class="object-cover w-full h-full" src="<%= listing.img_url %>" alt="">
-          </div>
-          <p class="text-slate-600 mb-2"><%= listing.address %></p>
-          <p class="font-bold">$<%= listing.price %></p>
-        </div>
-      <% end %>
-    <% end %>
+<%# MAP %>
+<div
+  data-controller="map"
+  data-map-markers-value="<%= @markers.to_json %>"
+  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+
+  <div id="map-index"
+       data-map-target="mapWrapper"
+       class="h-screen top-0 left-0"></div>
+
+  <div id="listings-content" class="container mx-auto py-10 mb-20">
+    <div class="grid grid-cols-1 gap-x-8 gap-y-10 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
+      <%= render @listings %>
+    </div>
+  </div>
+
+
+  <%# SHOW MAP / SHOW LIST %>
+  <div id="show-map-button" class="z-50 fixed left-1/2 -translate-x-1/2 bottom-24">
+    <button data-map-target="showMap" data-action="click->map#showMap" id="show-map" class="list-map text-neutral-100 py-4 px-6 bg-neutral-800 rounded-full font-medium text-sm">
+      Show Map<i class="ml-2 fa-solid fa-map"></i>
+    </button>
+    <button data-map-target="showList" data-action="click->map#showList" id="show-list" class="list-map text-neutral-100 py-4 px-6 bg-neutral-800 rounded-full font-medium text-sm hidden">
+      Show List<i class="ml-2 fa-solid fa-list-ul"></i>
+    </button>
   </div>
 </div>
+
+<%# FOOTER %>
 <%= render 'layouts/footer' %>

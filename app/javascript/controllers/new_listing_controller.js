@@ -1,4 +1,6 @@
 import { Controller } from "@hotwired/stimulus"
+import { enter, leave } from "el-transition";
+
 
 // Connects to data-controller="new-listing"
 export default class extends Controller {
@@ -28,5 +30,7 @@ export default class extends Controller {
     const secondItem = document.getElementById('second-form');
     lastItem.classList.remove('hidden');
     secondItem.classList.toggle('hidden');
+    const secondFooter = document.getElementById('secondFooter');
+    secondFooter.classList.add('hidden');
   }
 }

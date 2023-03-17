@@ -89,8 +89,9 @@
               </svg>
             </div>
             <div class="flex flex-grow-0 flex-shrink-0 h-10 w-12 pl-5">
-              <% if user_signed_in? %>
-                <img src="https://source.unsplash.com/random" alt="" class="rounded-full aspect-square align-middle self-center">
+              <!-- avatar -->
+              <% if user_signed_in? && current_user.photo.key %>
+                <%= cl_image_tag current_user.photo.key, crop: :fill, class: "object-cover rounded-full aspect-square align-middle self-center" %>
               <% else %>
                 <svg
                             viewBox="0 0 32 32"
@@ -121,6 +122,7 @@
               <!-- Active: "bg-gray-100", Not Active: "" -->
               <% unless user_signed_in? %><a href="<%= new_user_registration_path %>" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-0">Sign up<a><% end %>
                   <% unless user_signed_in? %><a href="<%= new_user_session_path %>" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-1">Log in</a><% end %>
+                  <% if user_signed_in? %><%= link_to "My Profile", user_path(current_user), class:"block px-4 py-2 text-sm text-gray-700"%> <% end %>
                   <% if user_signed_in? %><%= link_to "Logout", destroy_user_session_path, data: { "turbo-method": :delete }, class:"block px-4 py-2 text-sm text-gray-700"%> <% end %>
                 </div>
               </button>
