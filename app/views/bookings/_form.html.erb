@@ -1,6 +1,5 @@
-
-  <%= simple_form_for ([@listing, @booking]) do |f| %>
-    <%= f.input :total, label: "Payment Method",
-      :collection => ["MasterCard", "Amex", "Visa", "Discover"], prompt: "Select One" %>
-  <% end %>
-    <%= link_to "Confirm Payment", user_path(current_user), class: "" %>
+<%= simple_form_for ([@listing, @booking]) do |f| %>
+  <%= f.input :total, label: "Payment Method",
+    :collection => ["MasterCard", "Amex", "Visa", "Discover"], prompt: "Select One" %>
+<% end %>
+  <%= link_to "Confirm Payment", user_path(current_user), class: "" %>
