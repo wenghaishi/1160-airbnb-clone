@@ -4,7 +4,7 @@
       <div class="text-center">
         <div class="w-32 m-auto">
           <% if user_signed_in? && @user.photo.key %>
-            <%= cl_image_tag @user.photo.key, crop: :fill, class: "rounded-full aspect-square align-middle self-center" %>
+            <%= cl_image_tag @user.photo.key, crop: :fill, class: "rounded-full aspect-square align-middle self-center object-cover" %>
           <% else %>
             <svg
                             viewBox="0 0 32 32"
