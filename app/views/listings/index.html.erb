@@ -1,16 +1,86 @@
-<div class="container mx-auto py-10 mb-20">
-  <div class="grid grid-cols-1 gap-x-6 gap-y-10 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5">
+<%# MAP %>
+<div id="map-index"
+      data-controller="map"
+      data-map-markers-value="<%= @markers.to_json %>"
+      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
+      class="w-screen h-screen">
+</div>
+
+<div id="listings-content" class="container mx-auto py-10 mb-20">
+  <div class="grid grid-cols-1 gap-x-8 gap-y-10 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
     <% @listings.each do |listing| %>
       <%= link_to listing_path(listing) do %>
         <div>
           <div class="rounded-lg aspect-square overflow-hidden mb-2">
-            <img class="object-cover w-full h-full" src="<%= listing.img_url %>" alt="">
+            <% if listing.photo.key %>
+              <img class="object-cover w-full h-full" src="<%= cl_image_path listing.photo.key %>" alt="">
+            <% else %>
+              <img class="object-cover w-full h-full" src="https://source.unsplash.com/random" alt="">
+            <% end %>
           </div>
-          <p class="text-slate-600 mb-2"><%= listing.address %></p>
-          <p class="font-bold">$<%= listing.price %></p>
+          <div class="flex justify-between">
+            <div class="pr-4">
+              <p class="text-slate-600 mb-2"><%= listing.address %></p>
+              <p><span class="font-bold">$<%= listing.price %></span> night</p>
+            </div>
+            <div class="shrink-0 font-bold">
+              <i class="fa-solid fa-star"></i> 4.2
+            </div>
+          </div>
         </div>
       <% end %>
     <% end %>
   </div>
 </div>
+
+<%# SHOW MAP / SHOW LIST %>
+<div id="show-map-button" class="z-50 fixed left-1/2 -translate-x-1/2 bottom-24">
+  <button id="show-map" class="list-map text-neutral-100 py-4 px-6 bg-neutral-800 rounded-full font-medium text-sm">
+    Show Map<i class="ml-2 fa-solid fa-map"></i>
+  </button>
+  <button id="show-list" class="list-map text-neutral-100 py-4 px-6 bg-neutral-800 rounded-full font-medium text-sm">
+    Show List<i class="ml-2 fa-solid fa-list-ul"></i>
+  </button>
+</div>
+
+    <%# SHOW / HIDE MAP %>
+    <script>
+      window.onload = () => {
+        // Get the button, and when the user clicks on it, execute myFunction
+        document.getElementById("show-map").onclick = function() {showMap()};
+        document.getElementById("show-list").onclick = function() {showList()};
+
+        /* toggles between adding and removing the show class, which is used to hide and show the content */
+        function showMap() {
+          document.getElementById("map-index").classList.toggle("show");
+          document.getElementById("listings-content").classList.toggle("show");
+          document.getElementById("show-map").classList.toggle("show");
+          document.getElementById("show-list").classList.toggle("show");
+        }
+        function showList() {
+          document.getElementById("map-index").classList.toggle("show");
+          document.getElementById("listings-content").classList.toggle("show");
+          document.getElementById("show-list").classList.toggle("show");
+          document.getElementById("show-map").classList.toggle("show");
+        }
+      }
+
+      let mapDiv = document.getElementById("map-index");
+      let isMapVisible = false;
+
+      function toggleMap() {
+        if (isMapVisible) {
+          mapDiv.style.display = 'none';
+          isMapVisible = false;
+        } else {
+          mapDiv.style.display = 'block';
+          mapDiv.style.width = window.innerWidth + 'px';
+          mapDiv.style.height = window.innerHeight + 'px';
+          map.resize();
+          isMapVisible = true;
+        }
+      }
+    </script>
+
+<%# FOOTER %>
 <%= render 'layouts/footer' %>
