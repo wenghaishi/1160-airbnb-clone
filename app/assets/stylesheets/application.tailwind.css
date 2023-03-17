@@ -66,6 +66,16 @@
   /* transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out,box-shadow .15s ease-in-out; */
 }
 
+.mapboxgl-popup {
+  max-width: 200px;
+}
+
+.mapboxgl-popup-content {
+  text-align: center;
+  font-family: "Open Sans", sans-serif;
+
+}
+
 .form-content {
   text-align: center;
   margin-top:25px;
@@ -76,11 +86,21 @@
   text-align: left;
 }
 
-.mapboxgl-popup {
-  max-width: 200px;
+.listing-input {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding-left: 50px;
+  padding-right: 50px;
+  margin-top: 50px;
+  gap:50px;
+  position: absolute;
 }
 
-.mapboxgl-popup-content {
-  text-align: center;
-  font-family: "Open Sans", sans-serif;
+#submitlisting {
+  background-color: #EF4444;
+  color:white;
 }
