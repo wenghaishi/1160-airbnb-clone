@@ -12,14 +12,14 @@ export default class extends Controller {
 
     this.map = new mapboxgl.Map({
       container: this.element,
-      style: "mapbox://styles/mapbox/light-v11"
+      style: "mapbox://styles/mapbox/light-v11",
+      projection: 'mercator'
     })
 
     this.#addMarkersToMap()
     this.#fitMapToMarkers()
     this.#addMapControls()
   }
-
 
   #addMarkersToMap() {
     this.markersValue.forEach((marker) => {
@@ -43,6 +43,6 @@ export default class extends Controller {
   }
 
   #addMapControls() {
-    this.map.addControl(new mapboxgl.NavigationControl());
+    this.map.addControl(new mapboxgl.NavigationControl())
   }
 }

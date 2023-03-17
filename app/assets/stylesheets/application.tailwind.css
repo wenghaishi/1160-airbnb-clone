@@ -2,6 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 @import '~@fortawesome/fontawesome-free/css/all.min.css';
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&family=Roboto:wght@400;500&display=swap');
+
+* {
+  font-family: 'Plus Jakarta Sans', Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  scroll-behavior: smooth;
+}
 
 .sign_up > .user_first_name, .sign_up > .user_last_name {
   margin: 0;
@@ -98,6 +109,53 @@
   margin-top: 50px;
   gap:50px;
   position: absolute;
+}
+
+.mapboxgl-popup-content {
+  text-align: center;
+  font-family: "Open Sans", sans-serif;
+}
+
+.list-map {
+  transition: 300ms;
+}
+
+.list-map:hover {
+  box-shadow: 0 0 0 1px transparent, 0 0 0 4px transparent, 0 6px 16px rgba(0,0,0,0.12);
+  transform: scale(1.04);
+}
+
+#map-index {
+  display: none;
+}
+
+#map-index.show
+{
+  display: block;
+}
+
+#listings-content {
+  display: block;
+}
+
+#listings-content.show {
+  display: none;
+}
+
+#show-map {
+  display: block;
+}
+
+#show-map.show {
+  display: none;
+}
+
+#show-list {
+  display: none;
+}
+
+#show-list.show {
+  display: block;
 }
 
 #submitlisting {

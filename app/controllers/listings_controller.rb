@@ -2,7 +2,15 @@ class ListingsController < ApplicationController
   skip_before_action :authenticate_user!
 
   def index
-    @listings = policy_scope(Listing)
+    @listings = policy_scope(Listing.geocoded)
+    @markers = @listings.map do |listing|
+      {
+        lat: listing.latitude,
+        lng: listing.longitude,
+        info_window_html: render_to_string(partial: "info_window", locals: { listing: listing }),
+        marker_html: render_to_string(partial: "marker")
+      }
+    end
   end
 
   def show
