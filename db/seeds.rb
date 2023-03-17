@@ -25,7 +25,7 @@ user = User.create!(
 10.times do
   listing = Listing.new(
     name: Faker::Restaurant.name,
-    address: Faker::Address.city,
+    address: Faker::Address.country,
     description: Faker::Restaurant.description,
     price: Faker::Number.within(range: 50..300),
     img_url: 'https://source.unsplash.com/random'
