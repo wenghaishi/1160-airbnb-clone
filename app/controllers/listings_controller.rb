@@ -39,6 +39,7 @@ class ListingsController < ApplicationController
       redirect_to user_path(current_user)
       # redirect_to @listing
     else
+      raise
       redirect_to new_listing_path
     end
   end
