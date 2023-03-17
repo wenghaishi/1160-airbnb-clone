@@ -88,4 +88,10 @@ end
 
 gem "cloudinary"
 
+<<<<<<< HEAD
+gem 'simple_form-tailwind'
+
+
+=======
 gem "geocoder"
+>>>>>>> 9184133c9bf939f3695c7a297eea262cee18dd52

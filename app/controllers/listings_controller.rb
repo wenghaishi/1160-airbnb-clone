@@ -27,13 +27,14 @@ class ListingsController < ApplicationController
   def new
     @listing = Listing.new
     authorize @listing
-    render layout: 'new'
+    render layout: 'new_listing'
   end
 
   def create
     @listing = Listing.new(listing_params)
     @listing.owner = current_user
     authorize @listing
+
     if @listing.save
       redirect_to listings_path
       # redirect_to @listing
