@@ -1,6 +1,14 @@
-<h2> $ <%= @listing.price %> / night </h2>
-<%= simple_form_for [@listing, @booking] do |f| %>
-  <%= f.input :start_date, as: :date, html5: true, label:"Check-In" %>
-  <%= f.input :end_date, as: :date, html5: true, label:"Checkout" %>
-  <%= f.submit %>
-<% end %>
+<div class="border rounded-lg p-6 shadow-md sticky" style="top: 100px;">
+  <h2 class="mb-4"><span class="text-xl font-bold">$<%= @listing.price %> SGD </span> night </h2>
+  <%= simple_form_for [@listing, @booking] do |f| %>
+    <div class="flex mb-4">
+      <div class="border border-r-0 w-1/2 rounded-l-lg px-2 pt-2">
+        <%= f.input :start_date, as: :date, html5: true, label:"Check-In" %>
+      </div>
+      <div class="border w-1/2 rounded-r-lg px-2 pt-2">
+        <%= f.input :end_date, as: :date, html5: true, label:"Checkout" %>
+      </div>
+    </div>
+    <%= f.submit "Reserve", class: "rounded-lg border z-0 w-full py-2 px-3 mt-8 text-white font-semibold focus:outline-none focus:shadow-outline bg-gradient-to-r from-pink-600 via-red-600 to-pink-600 py-3 text-lg" %>
+  <% end %>
+</div>
