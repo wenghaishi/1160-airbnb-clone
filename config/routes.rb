@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root to: "listings#index"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   resources :listings do
-    resources :bookings, only: %i[show new create]
+    resources :bookings, only: %i[show new create update]
   end
 
   resources :users, only: %i[show]

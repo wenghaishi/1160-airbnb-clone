@@ -5,7 +5,6 @@ class BookingsController < ApplicationController
     skip_authorization
     @booking = Booking.find(params[:id])
     @total_days = @booking.total / @listing.price
-    render layout: "bookings"
   end
 
   def new
@@ -19,15 +18,20 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.listing = @listing
     @booking.user = current_user
-    authorize @booking
+    # authorize @booking
     @total_days = (@booking.end_date.to_date - @booking.start_date.to_date).to_i
     @booking.total = @total_days * @listing.price
     if @booking.save
-      redirect_to user_path(current_user)
+      redirect_to listing_booking_path(@listing.id, @booking.id)
     else
       render 'listings/show', status: :unprocessable_entity
     end
   end
+
+  def update
+
+  end
+
 
   private
 
