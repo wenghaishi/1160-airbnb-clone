@@ -6,8 +6,8 @@
         <title>Your Booking Summary</title>
         <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
     </head>
-
     <body>
+    <div class="container max-w-screen-lg mx-auto py-5 shadow-2xl" style="font-family: 'Plus Jakarta Sans', sans-serif;">
         <div class="mt-20">
             <h1 class="flex items-center justify-center font-bold text-red-600 text-md lg:text-3xl">Your Booking Summary
             </h1>
@@ -24,27 +24,29 @@
                             <div>
                                 <h2 class="text-xl font-bold"><%= @listing.name %></h2>
                                 <p class="text-sm"><%= @listing.description %></p>
-                                <span class="text-red-600">Per Night</span> $ <%= @listing.price %>
+                                <br>
+                                <h2 class="text-red-600">Number of Nights: <%= @total_days %></h2>
+                                <p class="text-red-600">Per Night: $<%= @listing.price %></p>
+                                <p class="text-xl font-bold">Total: $<%= @booking.total %></p>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="flex p-4 mt-4">
-                    <h2 class="text-xl font-bold">Number of Nights: <%= @total_days %></h2>
-                </div>
                 <div
                     class="flex items-center w-full py-4 text-sm font-semibold border-b border-gray-300 lg:py-5 lg:px-3 text-heading last:border-b-0 last:text-base last:pb-0">
-                    Total<span class="ml-2"> $ <%= @booking.total %></span></div>
+                </div>
+
+                </div>
             </div>
         </div>
         <div class="container p-12 mx-auto">
             <div class="flex flex-col w-full px-0 mx-auto md:flex-row">
                 <div class="flex flex-col md:w-full">
-                    <h2 class="mb-4 font-bold md:text-xl text-heading ">Payment Details
+                    <h2 class="mb-4 font-bold md:text-xl text-heading ">Payment Method
                     </h2>
                     <%= render "bookings/form" %>
                 </div>
             </div>
         </div>
+      </div>
     </body>
 </html>
