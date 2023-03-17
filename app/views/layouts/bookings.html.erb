@@ -1,0 +1,50 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Your Booking Summary</title>
+        <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    </head>
+
+    <body>
+        <div class="mt-20">
+            <h1 class="flex items-center justify-center font-bold text-red-600 text-md lg:text-3xl">Your Booking Summary
+            </h1>
+        </div>
+        <div class="flex items-center justify-center mx-10">
+            <div class="pt-12 md:pt-0 2xl:ps-4">
+                <div class="mt-8">
+                    <div class="flex flex-col space-y-4">
+                        <div class="flex space-x-4">
+                            <div>
+                                <img src="https://source.unsplash.com/user/erondu/1600x900" alt="image"
+                                    class="w-max">
+                            </div>
+                            <div>
+                                <h2 class="text-xl font-bold"><%= @listing.name %></h2>
+                                <p class="text-sm"><%= @listing.description %></p>
+                                <span class="text-red-600">Per Night</span> $ <%= @listing.price %>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex p-4 mt-4">
+                    <h2 class="text-xl font-bold">Number of Nights: <%= @total_days %></h2>
+                </div>
+                <div
+                    class="flex items-center w-full py-4 text-sm font-semibold border-b border-gray-300 lg:py-5 lg:px-3 text-heading last:border-b-0 last:text-base last:pb-0">
+                    Total<span class="ml-2"> $ <%= @booking.total %></span></div>
+            </div>
+        </div>
+        <div class="container p-12 mx-auto">
+            <div class="flex flex-col w-full px-0 mx-auto md:flex-row">
+                <div class="flex flex-col md:w-full">
+                    <h2 class="mb-4 font-bold md:text-xl text-heading ">Payment Details
+                    </h2>
+                    <%= render "bookings/form" %>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

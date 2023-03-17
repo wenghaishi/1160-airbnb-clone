@@ -1,11 +1,6 @@
-<div class="shadow-2xl my-4 rounded-xl border-slate-300 flex flex-col items-center content-center">
-<%= form_with url: "/listings/#{@listing.id}/bookings/new", method: :get do |f| %>
-  <div><span class="font-bold form-title"> <%= @listing.price %> SGD</span><span> night</span></div>
-      <%= f.date_field :start_date, as: :date, html5: true %>
-      <%= f.date_field :end_date, as: :date, html5: true %>
-  <%= f.submit "Reserve", class: 'form-button'  %>
-  <div class="form-content">
-    <span> <%= @listing.price %> SGD x 2 nights</span>
-  </div>
+<h2> $ <%= @listing.price %> / night </h2>
+<%= simple_form_for [@listing, @booking] do |f| %>
+  <%= f.input :start_date, as: :date, html5: true, label:"Check-In" %>
+  <%= f.input :end_date, as: :date, html5: true, label:"Checkout" %>
+  <%= f.submit %>
 <% end %>
-</div>

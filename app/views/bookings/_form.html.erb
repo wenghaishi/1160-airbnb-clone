@@ -1,0 +1,5 @@
+  <%= simple_form_for ([@listing, @booking]) do |f| %>
+    <%= f.input :total, label: "Payment Method",
+      :collection => ["MasterCard", "Amex", "Visa", "Discover"], prompt: "Select One" %>
+    <%= f.button :submit, "Confirm Payment" %>
+  <% end %>
