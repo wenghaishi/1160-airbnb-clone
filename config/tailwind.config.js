@@ -5,11 +5,4 @@ module.exports = {
     './app/assets/stylesheets/**/*.css',
     './app/javascript/**/*.js'
   ]
-<<<<<<< HEAD
 }
-=======
-
-}
-
-
->>>>>>> 5cf21f461580477ff985f4adaeb7bd42c1b457e8
