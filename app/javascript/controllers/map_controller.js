@@ -7,18 +7,36 @@ export default class extends Controller {
     markers: Array
   }
 
+  static targets = ["mapWrapper", "showMap", "showList"]
+
   connect() {
     mapboxgl.accessToken = this.apiKeyValue
 
+
     this.map = new mapboxgl.Map({
-      container: this.element,
+      container: this.mapWrapperTarget,
       style: "mapbox://styles/mapbox/light-v11",
       projection: 'mercator'
     })
 
-    this.#addMarkersToMap()
-    this.#fitMapToMarkers()
-    this.#addMapControls()
+    this.map.on("load", () => {
+      this.#addMarkersToMap()
+      this.#fitMapToMarkers()
+      this.#addMapControls()
+    })
+
+  }
+
+  showMap() {
+    this.mapWrapperTarget.classList.toggle("show")
+    this.showListTarget.classList.toggle("hidden")
+    this.showMapTarget.classList.toggle("hidden")
+    this.map.resize()
+  }
+  showList() {
+    this.mapWrapperTarget.classList.toggle("show")
+    this.showMapTarget.classList.toggle("hidden")
+    this.showListTarget.classList.toggle("hidden")
   }
 
   #addMarkersToMap() {

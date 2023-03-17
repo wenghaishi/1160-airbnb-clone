@@ -125,15 +125,6 @@ html {
   transform: scale(1.04);
 }
 
-#map-index {
-  display: none;
-}
-
-#map-index.show
-{
-  display: block;
-}
-
 #listings-content {
   display: block;
 }
@@ -142,23 +133,28 @@ html {
   display: none;
 }
 
-#show-map {
-  display: block;
-}
-
-#show-map.show {
-  display: none;
-}
-
-#show-list {
-  display: none;
-}
-
-#show-list.show {
-  display: block;
-}
-
 #submitlisting {
   background-color: #EF4444;
   color:white;
+}
+
+.mapboxgl-map {
+  width: 100%;
+  position: fixed !important;
+  z-index: 40;
+  opacity: 0;
+  transform: translateY(100%);
+  transition: 300ms;
+}
+
+.mapboxgl-map.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+#map {
+  position: relative !important;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  height: inherit;
 }
