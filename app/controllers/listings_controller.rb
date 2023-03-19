@@ -42,7 +42,13 @@ class ListingsController < ApplicationController
   def new
     @listing = Listing.new
     authorize @listing
-    render layout: 'new_listing'
+    if user_signed_in?
+      @listing = Listing.new
+      authorize @listing
+      render layout: 'new_listing'
+    else
+      redirect_to user_session_path
+    end
   end
 
   def create
