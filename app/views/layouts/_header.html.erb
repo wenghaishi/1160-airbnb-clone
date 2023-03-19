@@ -23,14 +23,14 @@
       <div class="inline-flex items-center max-w-full">
         <div class="flex items-center content-center flex-grow-0 flex-shrink pl-2 relative w-80 border rounded-full px-2" >
 
-          <%= form_with url: listings_path, method: :get, class: "flex" do %>
+          <%= form_with url: listings_path, method: :get, class: "flex mt-2 mb-2" do %>
           <%= text_field_tag :query,
               params[:query],
               class: "form-control w-2/4",
               placeholder: " ",
               class: "ml-2"
             %>
-            <%= submit_tag "Search", class: "btn btn-primary" , class: "w-20 cursor-pointer px-2 mt-2 mb-2 text-gray-700 hover:bg-gray-200 rounded-lg"%>
+            <%= submit_tag "Search", class: "btn btn-primary" , class: "w-20 cursor-pointer px-2  text-gray-700 hover:bg-gray-200 rounded-lg"%>
           <% end %>
         </div>
       </div>
