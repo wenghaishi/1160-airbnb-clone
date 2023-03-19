@@ -14,7 +14,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
   </head>
 
-  <body data-controller="new-listing">
+  <body data-controller="new-listing w-full">
   <div class="flex flex-row px-16 py-12 justify-between	w-full">
     <%# Airbnb logo %>
     <div class="inline-flex text-red-500">
@@ -38,13 +38,13 @@
     </div>
     </div>
 
-    <div class="relative overflow-y-hidden">
+    <div class="relative overflow-y-hidden w-full">
     <%# first form %>
     <%= simple_form_for(@listing) do |f| %>
-    <div class="flex flex-col items-center content-center h-screen py-16 gap-y-4" id="first-form">
+    <div class="flex flex-col items-center content-center w-full h-screen py-16 gap-y-4" id="first-form">
       <h1 class="text-5xl max-w5/6">Lets give your flat/apartment a title & description<h1>
       <h2 class="text-xl mb-8 text-slate-400"> Short titles work best. Have fun with it - you can always change it later.</h2>
-      <%= f.input :name, label: false, as: :text, placeholder: "Enter title here", input_html: {  class: "rounded-lg border z-0 w-full py-2 px-3 text-gray-700 focus:outline-none focus:shadow-outline m-0"}%> 
+      <%= f.input :name, label: false, as: :text, placeholder: "Enter title here", input_html: {  class: "rounded-lg border z-0 py-2 px-3 text-gray-700 w-80"}%> 
       <%= f.input :description, label: false, as: :text, placeholder: "Enter description here", input_html: {  class: "rounded-lg border z-0 w-full py-2 px-3 text-gray-700 focus:outline-none focus:shadow-outline m-0"}%> 
       <div class="mb-3 pt-0 w-2/4 h-1/4 mt-8">
       </div>
@@ -62,12 +62,23 @@
     </div>
     <%# end of second form %>
 
+    <%# third form %>
+    <div class="hidden flex flex-col items-center content-center h-screen py-16 gap-y-4" id="third-form">
+      <h1 class="text-5xl max-w5/6">Enter the address of your flat/apartment<h1>
+      <h2 class="text-xl mb-6 text-slate-400"> You can change it anytime.</h2>
+      <%= f.input :address, label: false, as: :text, placeholder: "Enter address here", input_html: {  class: "rounded-lg border z-0 w-80 py-2 px-3 text-gray-700 focus:outline-none focus:shadow-outline m-0"} %>
+      <%= f.input :price, label: false, placeholder: "Enter price here", input_html: {  class: "rounded-lg border z-0 w-full py-2 px-3 text-gray-700 focus:outline-none focus:shadow-outline m-0"} %>
+      <div class="mb-3 flex flex-col pt-0 w-2/4 h-1/4 mt-8 items-center content-center">
+      </div>
+    </div>
+    <%# end of third form %>
+
     <%# last form %>
     <div class="hidden flex flex-col items-center content-center h-screen py-24 gap-y-4" id="last-form">
       <h1 class="text-5xl mb-6 max-w5/6">Finally...upload some pictures here<h1>
       <%= f.input :photo, as: :file, label: false, input_html: {  class: "rounded-lg border z-0 w-full py-2 px-3 text-gray-700 focus:outline-none focus:shadow-outline m-0"} %>
         <%= f.button :submit, "Create listing!", id: "submitlisting", class: "rounded-lg border z-0 w-full py-2 px-3 mt-8 text-gray-700 focus:outline-none focus:shadow-outline"%>    </div>
-    <%# end of last form %>
+    <%# end of last form  %>
     <% end %>
     </div>
 

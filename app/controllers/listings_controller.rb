@@ -2,14 +2,29 @@ class ListingsController < ApplicationController
   skip_before_action :authenticate_user!
 
   def index
-    @listings = policy_scope(Listing.geocoded)
-    @markers = @listings.map do |listing|
-      {
-        lat: listing.latitude,
-        lng: listing.longitude,
-        info_window_html: render_to_string(partial: "info_window", locals: { listing: listing }),
-        marker_html: render_to_string(partial: "marker")
-      }
+    @listings = policy_scope(Listing)
+
+    if params[:query].present?
+      sql_query = "name ILIKE :query OR address ILIKE :query OR description ILIKE :query"
+      @listings = Listing.where(sql_query, query: "%#{params[:query]}%")
+      @markers = @listings.map do |listing|
+        {
+          lat: listing.latitude,
+          lng: listing.longitude,
+          info_window_html: render_to_string(partial: "info_window", locals: { listing: listing }),
+          marker_html: render_to_string(partial: "marker")
+        }
+      end
+    else
+      @listings = policy_scope(Listing.geocoded)
+      @markers = @listings.map do |listing|
+        {
+          lat: listing.latitude,
+          lng: listing.longitude,
+          info_window_html: render_to_string(partial: "info_window", locals: { listing: listing }),
+          marker_html: render_to_string(partial: "marker")
+        }
+      end
     end
   end
 
@@ -27,7 +42,13 @@ class ListingsController < ApplicationController
   def new
     @listing = Listing.new
     authorize @listing
-    render layout: 'new_listing'
+    if user_signed_in?
+      @listing = Listing.new
+      authorize @listing
+      render layout: 'new_listing'
+    else
+      redirect_to user_session_path
+    end
   end
 
   def create
@@ -39,6 +60,7 @@ class ListingsController < ApplicationController
       redirect_to user_path(current_user)
       # redirect_to @listing
     else
+      raise
       redirect_to new_listing_path
     end
   end
