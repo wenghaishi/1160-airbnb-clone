@@ -37,6 +37,7 @@
           </div>
 
           <%# OWNER AVATAR %>
+          <%= link_to user_path(@listing.owner) do %>
           <div class="w-14">
             <% if @listing.owner.photo.key %>
               <%= cl_image_tag @listing.owner.photo.key, crop: :fill, class: " object-cover rounded-full aspect-square align-middle self-center" %>
@@ -53,6 +54,7 @@
                 </svg>
             <% end %>
           </div>
+          <% end %>
         </div>
         <div class="border-b mt-4 mb-4 pt-4 pb-4" style="font-family: 'Plus Jakarta Sans', sans-serif;">
           <div class="flex mb-6">

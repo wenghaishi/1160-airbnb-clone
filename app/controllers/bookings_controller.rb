@@ -28,11 +28,6 @@ class BookingsController < ApplicationController
     end
   end
 
-  def update
-
-  end
-
-
   private
 
   def set_listing

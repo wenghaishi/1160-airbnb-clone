@@ -30,13 +30,13 @@
               required: true,
               label: false,
               input_html: { autocomplete: "new-password", placeholder: "Password", class: "rounded-lg border z-0 w-full py-2 px-3 mb-2 text-gray-700 focus:outline-none focus:shadow-outline" } %>
-        <label class="rounded-lg border z-0 w-full bg-gray-100 py-2 px-3 inline-block focus:outline-none focus:shadow-outline text-center" style="color: #9EA6B1;">
+        <label class="rounded-lg border z-0 w-full bg-gray-100 py-2 px-3 inline-block focus:outline-none focus:shadow-outline text-center" style="color: #9EA6B1; cursor: pointer;">
           Upload a Profile Photo
           <span style="display:none;">
             <%= f.input :photo, as: :file, required: true %>
           </span>
         </label>
-        <%= f.button :submit, "Sign Up", id: "submit", class: "rounded-lg border z-0 w-full py-2 px-3 mt-8 text-gray-700 focus:outline-none focus:shadow-outline"%>
+        <%= f.button :submit, "Sign Up", id: "submit", class: "rounded-lg border z-0 w-full py-2 px-3 mt-8 text-gray-700 focus:outline-none focus:shadow-outline cursor-pointer"%>
         <%= f.error_notification %>
       </div>
     </div>
