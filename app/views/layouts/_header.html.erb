@@ -21,22 +21,18 @@
   <div class="hidden sm:block flex-shrink flex-grow-0 justify-start px-2">
     <div class="inline-block">
       <div class="inline-flex items-center max-w-full">
-        <button class="flex items-center flex-grow-0 flex-shrink pl-2 relative w-80 border rounded-full px-6" type="button">
+        <div class="flex items-center content-center flex-grow-0 flex-shrink pl-2 relative w-80 border rounded-full px-2" >
 
           <%= form_with url: listings_path, method: :get, class: "d-flex" do %>
           <%= text_field_tag :query,
               params[:query],
-              class: "form-control",
-              placeholder: " "
+              class: "form-control w-2/4",
+              placeholder: " ",
+              class: "ml-2"
             %>
-
-
-
-
-            
-            <%= submit_tag "Search", class: "btn btn-primary" , class: "w-20 px-3 mt-2 mb-2 text-gray-700 hover:bg-gray-200 rounded-lg"%>
+            <%= submit_tag "Search", class: "btn btn-primary" , class: "w-20 px-2 mt-2 mb-2 text-gray-700 hover:bg-gray-200 rounded-lg"%>
           <% end %>
-        </button>
+        </div>
       </div>
     </div>
   </div>
