@@ -62,6 +62,17 @@
     </div>
     <%# end of second form %>
 
+    <%# third form %>
+    <div class="hidden flex flex-col items-center content-center h-screen py-16 gap-y-4" id="third-form">
+      <h1 class="text-5xl max-w5/6">Enter the address of your flat/apartment<h1>
+      <h2 class="text-xl mb-6 text-slate-400"> You can change it anytime.</h2>
+      <%= f.input :address, label: false, as: :text, placeholder: "Enter address here", input_html: {  class: "rounded-lg border z-0 w-full py-2 px-3 text-gray-700 focus:outline-none focus:shadow-outline m-0"} %>
+      <%= f.input :price, label: false, placeholder: "Enter price here", input_html: {  class: "rounded-lg border z-0 w-full py-2 px-3 text-gray-700 focus:outline-none focus:shadow-outline m-0"} %>
+      <div class="mb-3 flex flex-col pt-0 w-2/4 h-1/4 mt-8 items-center content-center">
+      </div>
+    </div>
+    <%# end of third form %>
+
     <%# last form %>
     <div class="hidden flex flex-col items-center content-center h-screen py-24 gap-y-4" id="last-form">
       <h1 class="text-5xl mb-6 max-w5/6">Finally...upload some pictures here<h1>
